@@ -1,0 +1,33 @@
+* {
+  list-style-type: none; }
+
+.header {
+  color: black; }
+
+.home-category li {
+  list-style-type: none; }
+
+#app {
+  height: 100vh;
+  background-color: #dae3e9; }
+
+.main-header {
+  height: 10%; }
+
+.main-body {
+  height: 80%;
+  display: flex; }
+  .main-body .categories-nav {
+    width: 15%; }
+  .main-body .render-body {
+    flex-grow: 1; }
+
+.main-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 10%;
+  text-align: center; }
+  .main-footer p {
+    color: #fff; }

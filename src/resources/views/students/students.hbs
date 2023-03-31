@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between">
+     <h1>Quản lí sinh viên</h1>
+     <button type="button" class="btn btn-success">Thêm sinh viên</button>
+</div>
+<div class="students-list">
+     <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Họ và Tên</th>
+      <th scope="col">Tuổi</th>
+      <th scope="col">Toán</th>
+      <th scope="col">Lí</th>
+      <th scope="col">Hóa</th>
+      <th scope="col">Trung Bình</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+     {{#each studentsList}}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{this.name}}</td>
+      <td>{{this.age}}</td>
+      <td>{{this.math}}</td>
+      <td>{{this.physical}}</td>
+      <td>{{this.chemistry}}</td>
+      <td>{{this.average}}</td>
+      <td>
+          <button type="button" class="btn btn-primary">Sửa</button>
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger">Xóa</button>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

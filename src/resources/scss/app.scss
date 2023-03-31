@@ -1,0 +1,38 @@
+@import 'variable';
+*{
+     list-style-type: none;
+}
+.header{
+     color: black;
+}
+.home-category li{
+     list-style-type: none;
+}
+#app{
+     height: 100vh;
+     background-color: rgb(218, 227, 233);
+}
+.main-header{
+     height: 10%;
+}
+.main-body{
+     height: 80%;
+     display: flex;
+     .categories-nav{
+          width: 15%;
+     }
+     .render-body{
+          flex-grow: 1;
+     }
+}
+.main-footer{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: column;
+     p{
+          color: #fff;
+     }
+     height: 10%;
+     text-align: center;
+}
