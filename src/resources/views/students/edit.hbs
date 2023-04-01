@@ -1,0 +1,28 @@
+<div class="mt-4">
+    <h3>Cập nhật thông tin sinh viên</h3>
+
+    <form class="mt-4" method="POST" action="/students/{{student._id}}?_method=PUT">
+        <div class="form-group">
+            <label for="name">Tên sinh viên</label>
+            <input type="text" class="form-control" value="{{student.name}}" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="">tuổi</label>
+            <textarea class="form-control" id="description" name="age">{{student.age}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Điểm toán</label>
+            <input type="text" class="form-control" value="{{student.math}}" id="" name="math">
+        </div>
+        <div class="form-group">
+            <label for="">Điểm lí</label>
+            <input type="text" class="form-control" value="{{student.physical}}" id="" name="physical">
+        </div>
+        <div class="form-group">
+            <label for="">Điểm hóa</label>
+            <input type="text" class="form-control" value="{{student.chemistry}}" id="" name="chemistry">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Lưu lại</button>
+    </form>
+</div>

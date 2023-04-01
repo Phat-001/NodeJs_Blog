@@ -3,6 +3,7 @@ var morgan = require("morgan");
 const path = require("path");
 const { engine } = require("express-handlebars");
 const app = express();
+const methodOverride = require('method-override');
 const port = 3001;
 const db = require("./config/db/index");
 const routes = require('./routes');
@@ -29,6 +30,8 @@ app.set("views", path.join(__dirname, "resources/views"));
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+app.use(methodOverride('_method'));
 
 routes(app);
 

@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
      <h1>Quản lí sinh viên</h1>
-     <button type="button" class="btn btn-success">Thêm sinh viên</button>
+     <a href="/students/create" class="create-student-btn">Thêm sinh viên</a>
 </div>
 <div class="students-list">
      <table class="table table-striped">
@@ -20,20 +20,62 @@
      {{#each studentsList}}
     <tr>
       <th scope="row">1</th>
-      <td>{{this.name}}</td>
+      <td><a href="/students/{{this.slug}}">{{this.name}}</a></td>
       <td>{{this.age}}</td>
       <td>{{this.math}}</td>
       <td>{{this.physical}}</td>
       <td>{{this.chemistry}}</td>
       <td>{{this.average}}</td>
       <td>
-          <button type="button" class="btn btn-primary">Sửa</button>
+          <a href="/students/{{this._id}}/edit">Sửa</a>
       </td>
       <td>
-          <button type="button" class="btn btn-danger">Xóa</button>
+          <button type="button" class="btn btn-danger" data-id="{{this._id}}" data-toggle="modal" data-target="#deleteStudent">Xóa</button>
       </td>
     </tr>
     {{/each}}
   </tbody>
 </table>
 </div>
+
+{{!-- hidden form delete student --}}
+<form name="delete-student" action="" method="POST"></form>
+
+{{!-- modal to access for delete student --}}
+<div class="modal" tabindex="-1" role="dialog" id="deleteStudent">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xác nhận xóa học sinh</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc chắn muốn xóa ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="delete-student-btn">Xóa</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tắt</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    var idStudent;
+    var deleteForm = document.forms['delete-student'];
+    var deleteBtn = document.getElementById('delete-student-btn');
+
+    $('#deleteStudent').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      idStudent = button.data('id') // Extract info from data-* attributes
+    })
+
+    deleteBtn.onclick = function () {
+      deleteForm.action = "/students/"+ idStudent + "?_method=DELETE";
+      deleteForm.submit();
+    };
+  })
+</script>
